@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "composite": true,
+    "noImplicitAny": false,
+    "types": [
+      "reflect-metadata",
+      "node",
+      "mocha",
+      "chai",
+      "sinon-chai",
+      "sinon-chai-calls-assertion"
+    ]
+  },
+  "include": ["./src", "./test"]
+}

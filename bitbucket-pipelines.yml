@@ -1,0 +1,75 @@
+image: node:10.15.3
+clone:
+  depth: full
+
+options:
+  size: 2x
+
+definitions:
+  steps:
+    - step: &install-packages
+        name: Install Packages
+        script:
+          - npm install
+        artifacts:
+          - node_modules/**
+        caches:
+          - node
+    - step: &build-application
+        name: Build Application
+        script:
+          - npm run build
+        artifacts:
+          - bin/**
+    - step: &validate-lint
+        name: Validate Lint
+        script:
+          - npm run lint
+    - step: &run-tests
+        name: Run Tests
+        script:
+          - npm run test:coverage:lcovonly
+        artifacts:
+          - coverage/**
+    - step: &scan-code
+        name: Scan Code
+        script:
+          - npm install -g sonarqube-scanner
+#          - sonar-scanner
+        artifacts:
+          - sonar-scanner
+    - step: &publish-package
+        name: Publish Package
+        script:
+          - npm publish
+
+  caches:
+    sonar-scanner: /root/.sonar/native-sonar-scanner
+
+pipelines:
+  default:
+    - step: *install-packages
+    - parallel:
+        - step: *build-application
+        - step: *validate-lint
+        - step: *run-tests
+    - step: *scan-code
+
+  branches:
+    master:
+      - step: *install-packages
+      - parallel:
+          - step: *build-application
+          - step: *validate-lint
+          - step: *run-tests
+      - step: *scan-code
+      - step: *publish-package
+
+    pull-requests:
+      '**':
+        - step: *install-packages
+        - parallel:
+            - step: *validate-lint
+            - step: *run-tests
+        - parallel:
+            - step: *scan-code

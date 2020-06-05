@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint-config-airbnb-base"],
+  "rules": {
+    "variable-name": [true, "check-format", "allow-leading-underscore"],
+    "no-unused-expression-chai": true,
+    "no-unused-expression": false,
+    "ter-arrow-parens": [true, "always"],
+    "no-use-before-declare": false,
+    "no-unnecessary-type-assertion": true,
+    "no-console": false,
+    "ter-indent": false
+  },
+  "rulesDirectory": ["tslint-no-unused-expression-chai"]
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "bin",
+    "composite": false,
+    "sourceMap": false,
+    "declaration": false,
+    "types": ["reflect-metadata", "node"]
+  },
+  "include": ["./src"],
+  "exclude": ["./test"]
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "./mocharc.json",
+  "require": "./ts-node-register.js"
+}
