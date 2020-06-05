@@ -14,3 +14,5 @@ program
   .option('-f, --force', 'force overwriting of package scripts')
   .action(addScripts);
 program.command('update-changelog').action(updateChangelog);
+
+program.parse(process.argv);

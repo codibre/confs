@@ -26,7 +26,7 @@
     "preaction:verify:update-modules": "npm run action:verify:update-modules:check",
     "action:verify:update-modules": "npm run action:verify:update-modules:reinstall && npm run action:verify:update-modules:clean",
     "action:verify:update-modules:clean": "del-cli .check",
-    "release:update-changelog": "ts-node src/update-changelog.ts",
+    "release:update-changelog": "ts-node src/index.ts update-changelog",
     "postversion": "npm run release:update-changelog",
     "prepublishOnly": "npm i && npm run build && npm run test:coverage",
     "lint": "npm run lint:format && npm run lint:style",
@@ -40,7 +40,7 @@
     "codibre-confs": "bin/index.js"
   },
   "author": "Thiago Santos",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://bitbucket.org/c/ts-application-config#readme",
   "dependencies": {
     "@types/chai": "^4.2.11",
@@ -74,5 +74,24 @@
   "devDependencies": {
     "@types/commander": "^2.12.2",
     "@types/recursive-readdir": "^2.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codibre/confs.git"
+  },
+  "keywords": [
+    "typescript",
+    "standards",
+    "eslint",
+    "nyc",
+    "mocha",
+    "unit",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/Codibre/confs/issues"
   }
 }

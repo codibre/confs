@@ -5,7 +5,10 @@ interface NpmPackage {
 }
 
 export async function updateChangelog() {
-  const v = (require('./package.json') as NpmPackage).version;
+  console.log('Reading package.json');
+  const v = (JSON.parse(
+    (await readFile('./package.json')).toString(),
+  ) as NpmPackage).version;
   const changeLogFile = 'CHANGELOG.md';
   let content = (await exists(changeLogFile))
     ? (await readFile(changeLogFile)).toString()
