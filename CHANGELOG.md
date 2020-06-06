@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Next Release
 
+-v0.0.2
+
+- Fixing default help commands and file templates
+
 -v0.0.1
 
 - First release. Check codibre-confs --help for command details

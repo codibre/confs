@@ -1,7 +1,5 @@
 import { readDir, copyFile, exists } from './fs';
 
-const packagePrefix = 'node_modules/@codibre/confs';
-
 export async function createConfigFiles({ force }: any) {
   if (force) {
     console.warn(
@@ -9,15 +7,15 @@ export async function createConfigFiles({ force }: any) {
     );
   }
   const path = process.cwd();
-  console.log(path);
-  const files = await readDir(`${packagePrefix}/templates`);
+  const packagePrefix = `${path}/node_modules/@codibre/confs/templates`;
+  const files = await readDir(packagePrefix);
 
   for (const source of files) {
-    const dest = source.replace(packagePrefix, '.');
+    const dest = source.replace(packagePrefix, path);
     if (force || !(await exists(dest))) {
       console.info(`Copying ${source} to ${dest}...`);
       try {
-        await copyFile(`./${source}`, dest);
+        await copyFile(`${source}`, dest);
       } catch (err) {
         console.error(err.message);
       }
