@@ -28,8 +28,8 @@
     "lint:fix": "npm run lint:format:fix && npm run lint:style:fix",
     "lint:format": "prettier --check '{src,test}/**/*.ts'",
     "lint:format:fix": "prettier --write '{src,test}/**/*.ts'",
-    "lint:style": "eslint '**/*.ts'",
-    "lint:style:fix": "eslint '**/*.ts' --fix"
+    "lint:style": "eslint 'src/**' 'test/**'",
+    "lint:style:fix": "eslint 'src/**' 'test/**' --fix"
   },
   "bin": {
     "codibre-confs": "bin/index.js"
