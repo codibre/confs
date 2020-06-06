@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Next Release
 
+-v0.0.3
+
+- Fixing base config files to be exported
+
 -v0.0.2
 
 - Fixing default help commands and file templates
