@@ -17,3 +17,5 @@ tsconfig.tsbuildinfo
 var/logs/
 yarn.lock
 bin
+dist
+build
