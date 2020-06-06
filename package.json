@@ -5,7 +5,9 @@
   "main": "index.js",
   "files": [
     "bin",
-    "templates/**"
+    "templates/**",
+    "*.json",
+    "*.js"
   ],
   "scripts": {
     "test": "mocha",
