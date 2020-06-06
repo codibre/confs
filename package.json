@@ -1,6 +1,6 @@
 {
   "name": "@codibre/confs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple package to centralize IDE configuration of all codibre's projects",
   "main": "index.js",
   "files": [
