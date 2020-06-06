@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Next Release
 
+-v0.0.5
+
+- Updating .mocharc and .nycrc templates
+
 -v0.0.4
 
 - Fixing eslintrc base and also template for extending!
