@@ -2,10 +2,18 @@ import { stub, match } from 'sinon';
 import * as cmd from '../../src/lib/npm-add-script';
 import { addScripts } from '../../src/lib';
 import { expect } from 'chai';
+import 'sinon-chai-calls-assertion';
 
 describe('addScripts()', () => {
   beforeEach(() => {
-    stub(cmd, 'npmAddScript');
+    let callCount = 0;
+    stub(cmd, 'npmAddScript').callsFake(() => {
+      callCount++;
+      if (callCount === 10) {
+        throw new Error('my error');
+      }
+    });
+    stub(console, 'error');
   });
 
   it('should add scripts to package.json but not forcing anything when force is falsy', () => {
@@ -15,6 +23,7 @@ describe('addScripts()', () => {
     expect(cmd.npmAddScript).to.have.been.calledWithExactly(
       match.has('force', false),
     );
+    expect(console.error).to.have.callsLike([match(/my error \(tip:.+\)/)]);
   });
 
   it('should add scripts to package.json forcing overwriting when force is truthy', () => {

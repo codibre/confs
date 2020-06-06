@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import { setupProject, addScripts, createConfigFiles } from './lib';
-import { updateChangelog } from './lib/update-changelog';
+import {
+  setupProject,
+  addScripts,
+  createConfigFiles,
+  getHelp,
+  updateChangelog,
+} from './lib';
 
 program
   .command('setup-project')
@@ -29,7 +34,7 @@ program
 program
   .command('help', { isDefault: true })
   .description('show help information')
-  .action(() => program.help());
+  .action(getHelp);
 
 program.version(process.env.NPM_PACKAGE_VERSION!);
 

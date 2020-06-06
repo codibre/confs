@@ -1,5 +1,7 @@
 import { readDir, copyFile, exists } from './fs';
 
+export const basePath = '/node_modules/@codibre/confs/templates';
+
 export async function createConfigFiles({ force }: any) {
   if (force) {
     console.warn(
@@ -7,7 +9,7 @@ export async function createConfigFiles({ force }: any) {
     );
   }
   const path = process.cwd();
-  const packagePrefix = `${path}/node_modules/@codibre/confs/templates`;
+  const packagePrefix = `${path}${basePath}`;
   const files = await readDir(packagePrefix);
 
   for (const source of files) {

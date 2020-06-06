@@ -60,7 +60,6 @@
     "recursive-readdir": "^2.2.2",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0",
-    "sinon-chai-calls-assertion": "^2.0.0",
     "ts-node": "^8.10.2",
     "tslint-config-airbnb-base": "^0.3.0",
     "tslint-no-unused-expression-chai": "^0.1.4",
@@ -68,7 +67,8 @@
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
-    "@types/recursive-readdir": "^2.2.0"
+    "@types/recursive-readdir": "^2.2.0",
+    "sinon-chai-calls-assertion": "^2.0.6"
   },
   "directories": {
     "test": "test"
