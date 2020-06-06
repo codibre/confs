@@ -17,3 +17,4 @@ tsconfig.tsbuildinfo
 var/logs/
 yarn.lock
 bin
+.npmrc

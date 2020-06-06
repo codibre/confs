@@ -34,7 +34,7 @@ export function addScripts({ force }: any) {
       npmAddScript({ key: entry[0], value: entry[1], force });
     } catch (err) {
       console.error(
-        `err.message (tip: you can run the command with force and try again!)`,
+        `${err.message} (tip: you can run the command with force and try again!)`,
       );
     }
   }
