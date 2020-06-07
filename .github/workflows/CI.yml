@@ -26,11 +26,19 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
           name: installed
-          path: .
+          path: node_modules
   build:
     needs: [install]
     runs-on: node:lts
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
     steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
     - uses: actions/download-artifact@v1
       with:
           name: installed
@@ -40,17 +48,27 @@ jobs:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v1
-      with:
-          name: installed
-    - name: Lint
-      run: npm run lint
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/download-artifact@v1
+        with:
+            name: installed
+      - name: Lint
+        run: npm run lint
   test:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v1
-      with:
-          name: installed
-    - name: Test
-      run: npm run test:coverage
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/download-artifact@v1
+        with:
+            name: installed
+      - name: Test
+        run: npm run test:coverage
