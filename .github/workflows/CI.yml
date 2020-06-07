@@ -9,8 +9,8 @@ on:
     branches: [ master ]
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: node:lts
     strategy:
       matrix:
         node-version: [10.x, 12.x]
@@ -22,30 +22,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: install
       run: npm ci
-    - name: caches
-      uses: actions/upload-artifact@v1
-      with:
-          name: installed
-          path: node_modules
-  build:
-    needs: [install]
-    runs-on: node:lts
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/download-artifact@v1
-      with:
-          name: installed
     - name: Build
       run: npm run build
   lint:
-    needs: [install]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -53,13 +32,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/download-artifact@v1
-        with:
-            name: installed
+      - name: install
+        run: npm ci
       - name: Lint
         run: npm run lint
   test:
-    needs: [install]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -67,8 +44,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/download-artifact@v1
-        with:
-            name: installed
+      - name: install
+        run: npm ci
       - name: Test
         run: npm run test:coverage
