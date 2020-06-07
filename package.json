@@ -4,7 +4,7 @@
   "description": "A simple package to centralize IDE configuration of all codibre's projects",
   "main": "index.js",
   "files": [
-    "bin",
+    "dist",
     "templates/**",
     "*.json",
     "*.js"
@@ -32,7 +32,7 @@
     "lint:style:fix": "eslint 'src/**' 'test/**' --fix"
   },
   "bin": {
-    "codibre-confs": "bin/index.js"
+    "codibre-confs": "dist/index.js"
   },
   "author": "Thiago Santos",
   "license": "MIT",
