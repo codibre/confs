@@ -12,7 +12,7 @@
   "scripts": {
     "test": "mocha",
     "clear": "npm run clear:build && npm run clear:modules",
-    "clear:build": "del-cli ./bin",
+    "clear:build": "del-cli ./dist",
     "clear:modules": "del-cli ./node_modules",
     "prebuild": "npm run clear:build && del-cli tsconfig.tsbuildinfo",
     "build": "tsc",
