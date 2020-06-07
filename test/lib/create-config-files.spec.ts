@@ -36,10 +36,10 @@ describe('createConfigFile()', () => {
     expect(process.cwd).to.have.callsLike([]);
     expect(fs.readDir).to.have.callsLike([`base-path${basePath}`]);
     expect(fs.exists).to.have.callsLikeExactly(
-      [`base-path/path1`],
-      [`base-path/path2`],
-      [`base-path/path3`],
-      [`base-path/path4`],
+      ['base-path/path1'],
+      ['base-path/path2'],
+      ['base-path/path3'],
+      ['base-path/path4'],
     );
     expect(console.info).to.have.callsLikeExactly(
       [`Copying base-path${basePath}/path1 to base-path/path1...`],
@@ -48,9 +48,9 @@ describe('createConfigFile()', () => {
       ['create-config-files has finished!'],
     );
     expect(fs.copyFile).to.have.callsLikeExactly(
-      [`base-path${basePath}/path1`, `base-path/path1`],
-      [`base-path${basePath}/path2`, `base-path/path2`],
-      [`base-path${basePath}/path4`, `base-path/path4`],
+      [`base-path${basePath}/path1`, 'base-path/path1'],
+      [`base-path${basePath}/path2`, 'base-path/path2'],
+      [`base-path${basePath}/path4`, 'base-path/path4'],
     );
     expect(console.error).to.have.callsLike(
       ['my error'],
@@ -75,10 +75,10 @@ describe('createConfigFile()', () => {
       ['create-config-files has finished!'],
     );
     expect(fs.copyFile).to.have.callsLikeExactly(
-      [`base-path${basePath}/path1`, `base-path/path1`],
-      [`base-path${basePath}/path2`, `base-path/path2`],
-      [`base-path${basePath}/path3`, `base-path/path3`],
-      [`base-path${basePath}/path4`, `base-path/path4`],
+      [`base-path${basePath}/path1`, 'base-path/path1'],
+      [`base-path${basePath}/path2`, 'base-path/path2'],
+      [`base-path${basePath}/path3`, 'base-path/path3'],
+      [`base-path${basePath}/path4`, 'base-path/path4'],
     );
     expect(console.error).to.have.callsLike(['my error']);
   });
