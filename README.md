@@ -6,7 +6,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/786f2feef20063142467/test_coverage)](https://codeclimate.com/github/Codibre/confs/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/786f2feef20063142467/maintainability)](https://codeclimate.com/github/Codibre/confs/maintainability)
 [![Packages](https://david-dm.org/Codibre/confs.svg)](https://david-dm.org/Codibre/confs)
-[![npm version](https://badge.fury.io/js/@codibre/confs.svg)](https://badge.fury.io/js/@codibre/confs)
+[![npm version](https://badge.fury.io/js/%40codibre%2Fconfs.svg)](https://badge.fury.io/js/%40codibre%2Fconfs)
 
 This is just a simple package to centralize IDE configuration of all codibre's projects
 
