@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  install:
+    runs-on: node:lts
+    steps:
+    - uses: actions/checkout@v2
+    - name: install
+      run: npm ci
+    - name: caches
+      uses: actions/upload-artifact@v1
+      with:
+          name: installed
+          path: .
+  build:
+    needs: [install]
+    runs-on: node:lts
+    steps:
+    - uses: actions/download-artifact@v1
+      with:
+          name: installed
+    - name: Build
+      run: npm run build
+  lint:
+    needs: [install]
+    runs-on: node:lts
+    steps:
+    - uses: actions/download-artifact@v1
+      with:
+          name: installed
+    - name: Lint
+      run: npm run lint
+  test:
+    runs-on: node:lts
+    steps:
+    - uses: actions/download-artifact@v1
+      with:
+          name: installed
+    - name: Test
+      run: npm run test:coverage
