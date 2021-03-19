@@ -2,7 +2,7 @@ import { stub, match } from 'sinon';
 import { createConfigFiles, basePath } from '../../src/lib';
 import { expect } from 'chai';
 import fs = require('../../src/lib/fs');
-import 'chai-callslike';
+import 'sinon-chai-calls-assertion';
 
 describe('createConfigFile()', () => {
   const expectedError = new Error('my error');
