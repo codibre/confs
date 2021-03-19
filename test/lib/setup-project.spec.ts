@@ -26,7 +26,7 @@ describe('setupProject()', () => {
     const result = await setupProject(params);
 
     expect(console.warn).to.have.callsLike([match.string]);
-    expect(lib2.createConfigFiles).to.have.callsLikeExactly([params]);
+    expect(lib2.createConfigFiles).to.have.callsLike([params]);
     expect(lib1.addScripts).to.have.callsLike([params]);
     expect(result).to.be.undefined;
   });

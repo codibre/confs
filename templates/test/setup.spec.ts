@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { restore } from 'sinon';
 import sinonChai = require('sinon-chai');
 import { use } from 'chai';
-import { callsLike } from 'sinon-chai-calls-assertion';
+import { callsLike } from 'chai-callslike';
 use(sinonChai);
 use(callsLike);
 

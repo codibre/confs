@@ -2,7 +2,7 @@ import { stub, SinonStub, match } from 'sinon';
 import fs = require('../../src/lib/fs');
 import { updateChangelog } from '../../src/lib';
 import { expect } from 'chai';
-import 'sinon-chai-calls-assertion';
+import 'chai-callslike';
 
 describe('updateChangelog()', () => {
   let exists: SinonStub;

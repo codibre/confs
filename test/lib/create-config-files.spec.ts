@@ -2,7 +2,7 @@ import { stub, match } from 'sinon';
 import { createConfigFiles, basePath } from '../../src/lib';
 import { expect } from 'chai';
 import fs = require('../../src/lib/fs');
-import 'sinon-chai-calls-assertion';
+import 'chai-callslike';
 
 describe('createConfigFile()', () => {
   const expectedError = new Error('my error');
@@ -35,19 +35,19 @@ describe('createConfigFile()', () => {
     expect(console.warn).to.have.callsLike();
     expect(process.cwd).to.have.callsLike([]);
     expect(fs.readDir).to.have.callsLike([`base-path${basePath}`]);
-    expect(fs.exists).to.have.callsLikeExactly(
+    expect(fs.exists).to.have.callsLike(
       ['base-path/path1'],
       ['base-path/path2'],
       ['base-path/path3'],
       ['base-path/path4'],
     );
-    expect(console.info).to.have.callsLikeExactly(
+    expect(console.info).to.have.callsLike(
       [`Copying base-path${basePath}/path1 to base-path/path1...`],
       [`Copying base-path${basePath}/path2 to base-path/path2...`],
       [`Copying base-path${basePath}/path4 to base-path/path4...`],
       ['create-config-files has finished!'],
     );
-    expect(fs.copyFile).to.have.callsLikeExactly(
+    expect(fs.copyFile).to.have.callsLike(
       [`base-path${basePath}/path1`, 'base-path/path1'],
       [`base-path${basePath}/path2`, 'base-path/path2'],
       [`base-path${basePath}/path4`, 'base-path/path4'],
@@ -66,15 +66,15 @@ describe('createConfigFile()', () => {
     expect(console.warn).to.have.callsLike([match.string]);
     expect(process.cwd).to.have.callsLike([]);
     expect(fs.readDir).to.have.callsLike([`base-path${basePath}`]);
-    expect(fs.exists).to.have.callsLikeExactly();
-    expect(console.info).to.have.callsLikeExactly(
+    expect(fs.exists).to.have.callsLike();
+    expect(console.info).to.have.callsLike(
       [`Copying base-path${basePath}/path1 to base-path/path1...`],
       [`Copying base-path${basePath}/path2 to base-path/path2...`],
       [`Copying base-path${basePath}/path3 to base-path/path3...`],
       [`Copying base-path${basePath}/path4 to base-path/path4...`],
       ['create-config-files has finished!'],
     );
-    expect(fs.copyFile).to.have.callsLikeExactly(
+    expect(fs.copyFile).to.have.callsLike(
       [`base-path${basePath}/path1`, 'base-path/path1'],
       [`base-path${basePath}/path2`, 'base-path/path2'],
       [`base-path${basePath}/path3`, 'base-path/path3'],
