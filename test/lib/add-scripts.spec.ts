@@ -2,7 +2,7 @@ import { stub, match } from 'sinon';
 import * as cmd from '../../src/lib/npm-add-script';
 import { addScripts } from '../../src/lib';
 import { expect } from 'chai';
-import 'sinon-chai-calls-assertion';
+import 'chai-callslike';
 
 describe('addScripts()', () => {
   beforeEach(() => {
