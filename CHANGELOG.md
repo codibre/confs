@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Next Release
 
+-v1.0.0
+
+- Fixing package dependencies to not force anyone to have something they don't need
+
 -v0.0.11
 
 - Using chai-callslike instead of sinon-chai-calls-assertion
