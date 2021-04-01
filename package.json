@@ -45,7 +45,8 @@
   },
   "dependencies": {
     "commander": "^7.2.0",
-    "del-cli": "*"
+    "del-cli": "*",
+    "npmlog": "^4.1.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.15",
@@ -53,6 +54,7 @@
     "@types/commander": "^2.12.2",
     "@types/mocha": "^8.2.2",
     "@types/node": "^14.14.37",
+    "@types/npmlog": "^4.1.2",
     "@types/recursive-readdir": "^2.2.0",
     "@types/sinon": "^9.0.11",
     "@types/sinon-chai": "^3.2.5",
