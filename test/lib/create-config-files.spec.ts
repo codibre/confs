@@ -56,6 +56,7 @@ describe('createConfigFile()', () => {
       ['my error'],
       [match(/base\-path\/path3.+/)],
     );
+    expect(result).to.be.be.undefined;
   });
 
   it('should copy all files from templates folder and forcing overwriting, if force is true', async () => {
@@ -81,5 +82,6 @@ describe('createConfigFile()', () => {
       [`base-path${basePath}/path4`, 'base-path/path4'],
     );
     expect(console.error).to.have.callsLike(['my error']);
+    expect(result).to.be.be.undefined;
   });
 });

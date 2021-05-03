@@ -9,15 +9,16 @@ module.exports = {
     rules: {
       'no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   }, ],
-  ignorePatterns: ['dist/**', 'build/**', 'bin/**', 'templates/**'],
+  ignorePatterns: ['dist/**', 'build/**', 'bin/**', 'templates/**', '*.py', ".eslintrc.js"],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['tsconfig.json', 'tsconfig.test.json'],
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'unused-imports'],
   rules: {
     '@typescript-eslint/member-delimiter-style': [
       'error',
@@ -32,6 +33,7 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unused-expressions': 'warn',
@@ -88,14 +90,11 @@ module.exports = {
       },
     ],
     'no-new-wrappers': 'error',
-    'no-redeclare': 'error',
+    'no-redeclare': 'off',
+    "@typescript-eslint/no-redeclare": ["error"],
     'no-regex-spaces': 'error',
-    'no-shadow': [
-      'error',
-      {
-        hoist: 'all',
-      },
-    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     'no-throw-literal': 'error',
     'no-trailing-spaces': 'error',
     'no-underscore-dangle': 'error',
@@ -104,6 +103,12 @@ module.exports = {
     'no-var': 'error',
     'object-shorthand': 'error',
     'one-var': ['error', 'never'],
+    '@typescript-eslint/no-unused-vars': 'off',
+		'unused-imports/no-unused-imports-ts': 'error',
+		'unused-imports/no-unused-vars-ts': [
+			'error',
+			{ 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' }
+		],
     'prefer-const': [
       'error',
       {

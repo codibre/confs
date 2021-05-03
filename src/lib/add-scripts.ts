@@ -1,6 +1,6 @@
 import { npmAddScript } from './npm-add-script';
 
-export function addScripts({ force }: any) {
+export function addScripts({ force }: Record<string, unknown>) {
   if (force) {
     console.warn(
       "Have you used the force option so we can overwrite all your existing package scripts? Heh, champs, I hope you know what you're doing",

@@ -5,8 +5,7 @@
     "outDir": "dist",
     "composite": false,
     "sourceMap": false,
-    "declaration": false,
-    "types": ["reflect-metadata", "node"]
+    "declaration": false
   },
   "include": ["./src"],
   "exclude": ["./test"]

@@ -3,15 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "composite": true,
-    "noImplicitAny": false,
-    "types": [
-      "reflect-metadata",
-      "node",
-      "mocha",
-      "chai",
-      "sinon-chai",
-      "chai-callslike"
-    ]
+    "noImplicitAny": false
   },
   "include": ["./src", "./test"]
 }
