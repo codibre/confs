@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Next Release
 
+
+
+-v1.1.1
+
+- Fixing vulnerabilities
+
 -v1.1.0
 
 - Bettering base .eslintrc.json
