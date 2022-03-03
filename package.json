@@ -47,7 +47,6 @@
   "dependencies": {
     "commander": ">=7.2.0",
     "del-cli": "*",
-    "eslint-plugin-unused-imports": ">=1.1.1",
     "tsconfig-paths": ">=3.9.0"
   },
   "devDependencies": {
@@ -61,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/eslint-plugin-tslint": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "eslint-plugin-unused-imports": ">=1.1.1",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-callslike": "*",
