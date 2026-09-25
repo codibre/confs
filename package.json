@@ -62,7 +62,7 @@
     "@typescript-eslint/parser": "^4.22.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "chai-callslike": "*",
+    "chai-callslike": "^1.2.8",
     "dotenv": "^8.2.0",
     "eslint": "^7.23.0",
     "eslint-plugin-unused-imports": ">=1.1.1",
@@ -95,5 +95,10 @@
   ],
   "bugs": {
     "url": "https://github.com/Codibre/confs/issues"
+  },
+  "overrides": {
+    "mocha": {
+      "minimatch": "^4.2.5"
+    }
   }
 }
